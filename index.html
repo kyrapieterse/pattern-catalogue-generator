@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Turn a folder of SVGs into a searchable offline catalogue with printable pattern swatches.">
+  <title>Pattern catalogue generator | Tint &amp; Screen</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <script defer src="patterns.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#controls">Skip to controls</a>
+  <header class="shell bar"><img src="tint-and-screen.svg" alt="Tint &amp; Screen" width="190" height="32"><a href="https://tintandscreen.co.za/architectural-screens/patterns/">Screen pattern library</a></header>
+  <main>
+    <div class="intro"><div class="shell"><h1>Pattern catalogue generator</h1><p>Turn a folder of SVGs into a searchable offline catalogue with printable pattern swatches.</p><a class="jump" href="#result">View result</a></div></div>
+    <noscript><p class="shell help">Enable JavaScript to use this offline tool.</p></noscript>
+    <div class="shell workspace">
+      <form id="controls" tabindex="-1" autocomplete="off" onsubmit="return false">
+        <h2>Catalogue contents</h2><p class="help">A new selection replaces the example collection. Design codes come from filenames. Printing uses the current search, and the HTML download includes every design.</p>
+        <div class="fields">
+          <label class="full">Catalogue title<input id="title" type="text" value="Screen patterns"></label>
+          <label class="full">Choose an SVG folder<input type="file" id="folder" accept=".svg" multiple webkitdirectory></label>
+          <label class="full">Or choose SVG files<input type="file" id="files" accept=".svg,image/svg+xml" multiple></label>
+          <label class="full">Search design codes or names<input id="search" type="text" value=""></label>
+        </div>
+        <div class="actions"><button type="button" id="download">Download offline catalogue</button><button type="button" id="print" class="secondary">Print swatches</button></div>
+        <p class="message" id="message" role="status"></p>
+      </form>
+      <section class="result" id="result" tabindex="-1" aria-labelledby="result-title">
+        <h2 id="result-title">Pattern swatches</h2>
+        <p class="lead" id="summary" aria-live="polite"></p><div id="gallery" class="gallery"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
